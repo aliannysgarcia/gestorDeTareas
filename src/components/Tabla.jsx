@@ -1,19 +1,8 @@
 import React from 'react'
 import Tareas from './Tareas'
 
-const Tabla = () => {
+const Tabla = ({tareas, eliminarTarea}) => {
 
-    const arrayTareas = [
-        {
-            tarea: 'Lavar los platos'
-        },
-        {
-            tarea: 'Salir a pasear'
-        },
-        {
-            tarea: 'Correr'
-        }
-    ]
     return (
         <div className='text-center d-flex justify-content-center'>
                 {/* <div className='display-2 text-center'>Listado de Tareas</div> */}
@@ -28,8 +17,8 @@ const Tabla = () => {
                     </thead>
                     <tbody>
                         {
-                            arrayTareas.map((tarea, id) => (
-                                <Tareas tarea={tarea} key={id} />
+                            tareas.map((tarea, idx) => (
+                                <Tareas tarea={tarea} key={idx} eliminarTarea={eliminarTarea}/>
                             ))
                         }
                     </tbody>
