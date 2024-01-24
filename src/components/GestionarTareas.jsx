@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 const GestionarTareas = () => {
 
   const [tareas, setTareas] = useState(BaseDeDatos)
+  const [tareaAEditar, setTareaAEditar] = useState(null)
 
   const agregarTarea = (nuevaTarea) => {
 
@@ -47,16 +48,17 @@ const GestionarTareas = () => {
       })}
     });
 
-    const nuevoEstado = tareas.filter(tarea => tarea.id !== id)
-    // console.log(nuevoEstado)
-    setTareas(nuevoEstado)
 
+  }
+  const editarTarea = (tareaAEditar) => {
+    const nuevoEstadoTarea = tareas.map(tarea => tarea.id === tareaAEditar.id ? tareaAEditar : tarea)
+    setTareas(nuevoEstadoTarea)
   }
 
   return (
     <div className='container mt-5'>
-      <Formulario agregarTarea={agregarTarea} />
-      <Tabla tareas={tareas} eliminarTarea={eliminarTarea} />
+      <Formulario agregarTarea={agregarTarea} tareaAEditar={tareaAEditar} editarTarea={editarTarea}/>
+      <Tabla tareas={tareas} eliminarTarea={eliminarTarea} setTareaAEditar={setTareaAEditar}/>
     </div>
   )
 }
