@@ -1,13 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Formulario = ({agregarTarea}) => {
+const Formulario = ({agregarTarea, tareaAEditar, editarTarea}) => {
 
     const formInicial = {
+        id: null,
         fecha: '',
         tarea: ''
     }
 
     const [form, setForm] = useState(formInicial)
+
+    useEffect(() => {
+      tareaAEditar ? setForm(tareaAEditar) : setForm(formInicial)
+    }, [tareaAEditar])
+    
 
     const handleChange = e => { // para manejar cambios en el form
         console.log(e.target.name)
@@ -23,7 +29,11 @@ const Formulario = ({agregarTarea}) => {
     const handleSubmit = e => { //maneja el envio del formulario
         e.preventDefault() //evita el comportamiento predeterminado
         console.log('se presiono el boton')
-        agregarTarea(form)
+        if (form.id === null){
+            agregarTarea(form)
+        } else {
+            editarTarea(form)
+        }
         setForm(formInicial);
     }
 
