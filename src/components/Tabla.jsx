@@ -1,7 +1,7 @@
 import React from 'react'
 import Tareas from './Tareas'
 
-const Tabla = ({tareas, eliminarTarea}) => {
+const Tabla = ({tareas, eliminarTarea, setTareaAEditar}) => {
 
     return (
         <div className='text-center d-flex justify-content-center'>
@@ -18,7 +18,7 @@ const Tabla = ({tareas, eliminarTarea}) => {
                     <tbody>
                         {
                             tareas.map((tarea, idx) => (
-                                <Tareas tarea={tarea} key={idx} eliminarTarea={eliminarTarea}/>
+                                <Tareas tarea={tarea} key={idx} eliminarTarea={eliminarTarea} setTareaAEditar={setTareaAEditar}/>
                             ))
                         }
                     </tbody>
