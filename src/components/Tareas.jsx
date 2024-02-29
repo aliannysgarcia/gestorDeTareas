@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
 
 const Tareas = ({tarea, eliminarTarea, setTareaAEditar}) => {
-
+    
     const handleEliminar = id => {
-        console.log('se presiono el boton eliminar con el id:', id)
+        console.log('se presiono el botón eliminar con el id:', id)
         eliminarTarea(id)
     }
     const handleEditar = tarea => {
@@ -13,7 +12,7 @@ const Tareas = ({tarea, eliminarTarea, setTareaAEditar}) => {
 
     return (
         <tr>
-            <th scope="row">{tarea.fecha ? tarea.fecha.toLocaleString() : ''}</th>
+            <th scope="row">{tarea.fecha}</th>
             <td>{tarea.tarea}</td>
             <td>
                 <input className="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"/>
@@ -23,7 +22,6 @@ const Tareas = ({tarea, eliminarTarea, setTareaAEditar}) => {
                 <button className='btn btn-danger' onClick={()=>handleEliminar(tarea.id)}>Eliminar</button>
             </td>
         </tr>
-        
     )
 }
 
