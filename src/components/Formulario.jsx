@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const Formulario = ({agregarTarea, tareaAEditar, editarTarea}) => {
-
+const Formulario = ({agregarTarea, tareaAEditar, editarTarea}) => { 
     const formInicial = {
         id: null,
         fecha: '',
@@ -14,7 +13,6 @@ const Formulario = ({agregarTarea, tareaAEditar, editarTarea}) => {
       tareaAEditar ? setForm(tareaAEditar) : setForm(formInicial)
     }, [tareaAEditar])
     
-
     const handleChange = e => { // para manejar cambios en el form
         console.log(e.target.name)
         console.log(e.target.value)
@@ -28,7 +26,8 @@ const Formulario = ({agregarTarea, tareaAEditar, editarTarea}) => {
     }
     const handleSubmit = e => { //maneja el envio del formulario
         e.preventDefault() //evita el comportamiento predeterminado
-        console.log('se presiono el boton')
+        console.log('se presiono el boton agregar')
+        
         if (form.id === null){
             agregarTarea(form)
         } else {
@@ -38,16 +37,25 @@ const Formulario = ({agregarTarea, tareaAEditar, editarTarea}) => {
     }
 
     return (
+        <>
+        <h1 className='mb-3 d-flex justify-content-center'>Gestor de Tareas</h1>
         <form className="row g-3 d-flex justify-content-center" onSubmit={handleSubmit}>
             <div className="col-auto">
                 <label htmlFor="tarea" className="visually-hidden">Tarea</label>
-                <input type="text" className="form-control" id="tarea" name="tarea" onChange={handleChange} value={form.tarea} placeholder="Ingrese la Tarea" />
+                <input 
+                    type="text" 
+                    className="form-control" 
+                    id="tarea" name="tarea" 
+                    onChange={handleChange} 
+                    value={form.tarea} 
+                    placeholder="Ingrese la Tarea" />
             </div>
             <div className="col-auto">
                 <button type="submit" className="btn btn-success mb-2">Agregar Tarea</button>
             </div>
             <hr />
         </form>
+        </>
     )
 }
 
