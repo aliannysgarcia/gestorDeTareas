@@ -1,4 +1,3 @@
-import React from 'react'
 import Tareas from './Tareas'
 
 const Tabla = ({tareas, eliminarTarea, setTareaAEditar}) => {
@@ -9,7 +8,7 @@ const Tabla = ({tareas, eliminarTarea, setTareaAEditar}) => {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th scope="col">Fecha</th>
+                            <th scope="col">Fecha y Hora</th>
                             <th scope="col">Tarea</th>
                             <th scope="col">Ejecutada</th>
                             <th scope="col">Opciones</th>
@@ -17,8 +16,8 @@ const Tabla = ({tareas, eliminarTarea, setTareaAEditar}) => {
                     </thead>
                     <tbody>
                         {
-                            tareas.map((tarea, idx) => (
-                                <Tareas tarea={tarea} key={idx} eliminarTarea={eliminarTarea} setTareaAEditar={setTareaAEditar}/>
+                            tareas && tareas.map((tarea, id) => (
+                              <Tareas tarea={tarea} key={id} eliminarTarea={eliminarTarea} setTareaAEditar={setTareaAEditar}/>
                             ))
                         }
                     </tbody>
