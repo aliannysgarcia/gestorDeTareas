@@ -8,7 +8,7 @@ const GestionarTareas = () => {
 
   const [tareas, setTareas] = useState(null)
   const [tareaAEditar, setTareaAEditar] = useState(null)
-  const url = 'http://localhost:8080/tareas/'
+  const url = import.meta.env.VITE_TAREAS
 
   useEffect(() => {
     obtenerTodasLasTareas()
@@ -101,10 +101,27 @@ const GestionarTareas = () => {
     }
   }
 
-  const editarTarea = (tareaAEditar) => {
-    console.log('editandoooooo')
-    const nuevoEstadoTarea = tareas.map(tarea => tarea.id === tareaAEditar.id ? tareaAEditar : tarea)
-    setTareas(nuevoEstadoTarea)
+  const editarTarea = async (tareaAEditar) => {
+    try {
+      const options = {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(tareaAEditar)
+      }
+      const urlUpdate = url + tareaAEditar.id;
+      const res = await fetch(urlUpdate, options)
+      
+      if(!res.ok) {
+        throw new Error('no se pudo actualizar la tarea', res.status)
+      }
+      const tareaEditada = await res.json()
+      console.log(tareaEditada)
+
+      const nuevoEstado = tareas.map(tarea => tarea.id === tareaEditada.id ? tareaEditada : tarea)
+      setTareas(nuevoEstado)
+    } catch (error) {
+      console.error('[editarTarea]', error)
+    }
   }
 
   return (
