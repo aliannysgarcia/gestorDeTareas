@@ -48,7 +48,7 @@ const Formulario = ({agregarTarea, tareaAEditar, editarTarea}) => {
                     id="tarea" name="tarea" 
                     onChange={handleChange} 
                     value={form.tarea} 
-                    placeholder="Ingrese la Tarea" />
+                    placeholder="Ingrese la Tarea" required/>
             </div>
             <div className="col-auto">
                 <button type="submit" className="btn btn-success mb-2">Agregar Tarea</button>
