@@ -1,6 +1,6 @@
 # Gestor de Tareas
 
-Este proyecto es un gestor de tareas simple, construido con React para el frontend y la base de datos de este proyecto está almacenada en un archivo JSON en la carpeta data. Permite a los usuarios crear, leer, actualizar y eliminar tareas.
+Este proyecto es un gestor de tareas simple, construido con React y Bootstrap para el frontend y la base de datos de este proyecto está almacenada en un archivo JSON en la carpeta data. Permite a los usuarios crear, leer, actualizar y eliminar tareas.
 
 Características
 -Crear nuevas tareas con una descripción y una fecha.
