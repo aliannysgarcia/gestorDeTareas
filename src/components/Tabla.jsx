@@ -10,7 +10,6 @@ const Tabla = ({tareas, eliminarTarea, setTareaAEditar}) => {
                         <tr>
                             <th scope="col">Fecha y Hora</th>
                             <th scope="col">Tarea</th>
-                            <th scope="col">Ejecutada</th>
                             <th scope="col">Opciones</th>
                         </tr>
                     </thead>
