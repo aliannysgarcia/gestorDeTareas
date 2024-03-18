@@ -7,3 +7,5 @@ Este proyecto es un gestor de tareas simple que permite a los usuarios crear, le
 * Ver todas las tareas en una lista ordenada.
 * Actualizar las tareas existentes.
 * Eliminar tareas que ya no son necesarias.
+
+![Gestor de Tareas](src/images/gestordetareas.PNG)
