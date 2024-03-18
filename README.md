@@ -1,8 +1,9 @@
-# React + Vite
+# Gestor de Tareas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un gestor de tareas simple que permite a los usuarios crear, leer, actualizar y eliminar tareas. Construido con React y Bootstrap para el frontend y la base de datos está almacenada en un archivo JSON en la carpeta data. El archivo db.json contiene un objeto con una propiedad tareas, que es un array que almacena todas las tareas. 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Características
+* Crear nuevas tareas con una descripción y una fecha.
+* Ver todas las tareas en una lista ordenada.
+* Actualizar las tareas existentes.
+* Eliminar tareas que ya no son necesarias.
